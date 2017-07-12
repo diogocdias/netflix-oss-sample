@@ -1,11 +1,12 @@
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
-
 spring:
   application:
     name: servicea
 
 server:
   port: 8090
+
+hystrix:
+  command:
+    serviceARead:
+      circuitBreaker:
+        forceOpen: false

@@ -4,7 +4,6 @@ import java.net.URI;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;			
 
 @Service
@@ -16,7 +15,7 @@ public class ServiceAService {
 	    this.restTemplate = rest;
 	  }
 
-	  @HystrixCommand(fallbackMethod = "readFallback")
+	  @HystrixCommand(commandKey = "serviceARead", fallbackMethod = "readFallback")
 	  public String read() {
 	    URI uri = URI.create("http://localhost:8091/read");
 
