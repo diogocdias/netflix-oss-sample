@@ -1,0 +1,9 @@
+zuul:
+  routes:
+    servicea:
+      url: http://localhost:8090
+    serviceb:
+      url: http://localhost:8091
+
+server:
+  port: 8765
