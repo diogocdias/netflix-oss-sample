@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import com.example.servicea.ServiceAService;
 @EnableCircuitBreaker
 @RestController
 @SpringBootApplication
+@EnableDiscoveryClient
 public class ServiceAApplication {
 
 	  @Autowired

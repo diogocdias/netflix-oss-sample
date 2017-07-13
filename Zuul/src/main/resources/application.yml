@@ -1,9 +1,30 @@
+spring:
+  application:
+    name: gateway
+
+
+# This is not needed anymore since the services will be registered in Eureka
+#zuul:
+#  routes:
+#    servicea:
+#      url: http://localhost:8090
+#    serviceb:
+#      url: http://localhost:8091
+
 zuul:
+  ignoredServices: "*"
   routes:
     servicea:
-      url: http://localhost:8090
+      path: /servicea/**
+      serviceId: servicea
     serviceb:
-      url: http://localhost:8091
+      path: /serviceb/**
+      serviceId: serviceb
 
 server:
   port: 8765
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
